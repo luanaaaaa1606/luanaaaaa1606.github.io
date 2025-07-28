@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Un an ❤️</title>
+  <style>
+    body {
+      background: #fff0f5;
+      color: #8b0000;
+      font-family: "Segoe UI", sans-serif;
+      text-align: center;
+      padding: 40px;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 1.3em;
+    }
+
+    a.album-button {
+      display: inline-block;
+      margin-top: 30px;
+      background-color: #ff69b4;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s;
+    }
+
+    a.album-button:hover {
+      background-color: #ff1493;
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff1493;
+      animation: float 7s infinite ease-in;
+      font-size: 24px;
+      opacity: 0.8;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    .footer {
+      margin-top: 50px;
+      font-size: 1.2em;
+      color: #a0522d;
+    }
+  </style>
+</head>
+<body>
+  <h1>Un an de iubire 💖</h1>
+  <p>Un an de râsete, de amintiri și de momente doar ale noastre.<br>
+     Te iubesc cu tot ce sunt și cu tot ce urmează să fim.</p>
+
+  <a class="album-button" href="https://photos.app.goo.gl/xS56Q9w4UDtQZVNe6" target="_blank">
+    Vezi albumul nostru 📸
+  </a>
+
+  <div class="footer">Cu drag, Lou🐸</div>
+
+  <div class="hearts" id="hearts-container"></div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+      document.getElementById('hearts-container').appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 7000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
